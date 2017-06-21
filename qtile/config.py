@@ -15,8 +15,8 @@ class Commands:
     volume_down = lazy.spawn('sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -2%"')
     mute_toggle = lazy.spawn('pactl set-sink-mute 0 toggle')
     mic_toggle = lazy.spawn('pactl set-source-mute 1 toggle')
-    monitor_brightness_up = lazy.spawn('xbacklight -inc 10')
-    monitor_brightness_down = lazy.spawn('xbacklight -dec 10')
+    monitor_brightness_up = lazy.spawn('light -A 10')
+    monitor_brightness_down = lazy.spawn('light -U 10')
     lock_screen = lazy.spawn('slock')
 
 
