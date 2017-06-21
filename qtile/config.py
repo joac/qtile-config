@@ -17,6 +17,8 @@ class Commands:
     mic_toggle = lazy.spawn('pactl set-source-mute 1 toggle')
     monitor_brightness_up = lazy.spawn('xbacklight -inc 10')
     monitor_brightness_down = lazy.spawn('xbacklight -dec 10')
+    lock_screen = lazy.spawn('slock')
+
 
 keys = [
     # Switch between windows in current stack pane
@@ -56,6 +58,10 @@ keys = [
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
     Key(
+        [], "XF86Explorer",
+        lazy.layout.toggle_split()
+    ),
+    Key(
         [mod, "shift"], "Return",
         lazy.layout.toggle_split()
     ),
@@ -86,6 +92,8 @@ keys = [
     # Screen Brightness
     Key([], 'XF86MonBrightnessUp', Commands.monitor_brightness_up),
     Key([], 'XF86MonBrightnessDown', Commands.monitor_brightness_down),
+    Key([], 'XF86MonBrightnessDown', Commands.monitor_brightness_down),
+    Key([], 'XF86Tools', Commands.lock_screen),
 ]
 
 groups = [
